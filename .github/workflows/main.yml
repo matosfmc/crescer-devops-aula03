@@ -59,7 +59,7 @@ jobs:
           
   push-image:
     name: Enviar imagem Heroku
-    needs: [code-quality]
+    needs: tests
     runs-on: ubuntu-latest
   
     steps:
