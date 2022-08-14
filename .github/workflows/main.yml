@@ -75,9 +75,9 @@ jobs:
         with:
           registry: registry.heroku.com
           username: ${{ secrets.HEROKU_EMAIL }}
-          password: ${{ secrets.HEROKU_API_KEY }}
+          password: ${{ secrets.HEROKU_TOKEN }}
       - name: Publicação
         run: heroku container:release -a desafio-final-devops web 
         env:
          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
-         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+         HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
