@@ -24,25 +24,10 @@ jobs:
 
     - name: Compilação
       run: mvn -B compile --file pom.xml
-        
-  code-quality:
-    name: Qualidade do Cdigo
-    needs: build
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Git Checkout
-      uses: actions/checkout@v3
-    - name: Adciona permissão para o mvnw
-      run: chmod +x mvnw
-    - name: Anáise do sonar
-      run: ./mvnw verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=lab-devops-project -Dsonar.host.url=https://sonarcloud.io/
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     
   tests:
     name: Testes Automatizados
-    needs: code-quality
+    needs: build
     runs-on: ubuntu-latest
     
     steps:
