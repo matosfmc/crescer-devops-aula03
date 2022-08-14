@@ -37,7 +37,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribuition: 'temurin'
+        distribution: 'temurin'
         cache: maven
     - name: Testes Unitários
       run: mvn -B test --file pom.xml
