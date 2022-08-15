@@ -72,7 +72,7 @@ jobs:
       with:
         registry: registry.heroku.com
         username: ${{ secrets.HEROKU_EMAIL }}
-        password: ${{ secrets.HEROKU_TOKEN }}
+        password: ${{ secrets.HEROKU_API_KEY }}
     - name: Criação e envio da imagem
       uses: docker/build-push-action@v3
       with:
@@ -90,9 +90,9 @@ jobs:
         with:
           registry: registry.heroku.com
           username: ${{ secrets.HEROKU_EMAIL }}
-          password: ${{ secrets.HEROKU_TOKEN }}
+          password: ${{ secrets.HEROKU_API_KEY }}
       - name: Publicação
         run: heroku container:release -a desafio-final-devops web 
         env:
          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
-         HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
+         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
