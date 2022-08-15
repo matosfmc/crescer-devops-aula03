@@ -8,5 +8,5 @@ RUN mvn -e -f /app/pom.xml clean package
 FROM openjdk:11-jre-slim
 WORKDIR /app/
 COPY --from=build /app/target/hellodocker-0.0.1-SNAPSHOT.jar /app/hellodocker.jar
-EXPOSE 9320
+EXPOSE 8080
 ENTRYPOINT [ "java","-Dserver.port=$PORT","-jar","/app/hellodocker.jar" ]
