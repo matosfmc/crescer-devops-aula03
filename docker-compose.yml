@@ -1,6 +1,0 @@
-services:
-  hello-docker:
-    build: .
-    image: aula01
-    ports:
-      - "9320:8080"
